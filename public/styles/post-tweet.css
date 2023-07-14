@@ -1,0 +1,43 @@
+.tweets {
+  border: solid black;
+  margin-top: 30px;
+  box-shadow: 10px 10px gray;
+}
+
+article.tweets header {
+  margin-top: 0;
+  display: flex; 
+  width: 95%;
+  background-color: #f4f1ec;
+}
+
+.displayUsername {
+  margin-left: 30px;
+  width: 100%;
+  display: flex;
+  align-items: row;
+  justify-content: space-between;
+}
+.tweets span {
+  margin-top: 1em;
+}
+
+.tweet-icons {
+  margin: 0px 20px;
+  width: 95%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 40px;
+}
+.tweet-icons i {
+  color: #4850c2;
+}
+.tweet-icons i:hover {
+  color: #DEB887;
+}
+
+.tweet-text {
+  border-bottom: solid black;
+  margin: 20px;
+}
