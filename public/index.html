@@ -23,7 +23,8 @@
 
   <!-- External JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js" integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- <script src="//unpkg.com/timeago.js"></script> -->
   <!-- App JS -->
   <script type="text/javascript" src="/scripts/client.js"></script>
   <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
@@ -51,7 +52,7 @@
   <!-- Page-specific (main) content here -->
   <main class="container">
     <section class="new-tweet">
-      <form method="POST" action="/tweets/">
+      <form id="submitTweet" method="POST" action="/tweets/">
         <!-- <label for="tweet-text">What are you humming about?</label> -->
         <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
         <div class="tweet">
@@ -60,43 +61,8 @@
         </div>
       </form>
     </section>
-    <article class="tweets">
-      <header>
-        <div class="displayUsername">
-          <span>
-            <i class="fa-regular fa-user"></i>
-             <!-- <img class="avatar" src="images/profile-hex.png"> -->
-            Name</span>
-          <h3 style="color: grey;">Username</h3>
-        </div>
-      </header>
-      <section class="tweet-text">
-        <p>If I have seen further it is by standing on the shoulder of giants</p>
-      </section>
-      <footer>
-        <div class="tweet-icons">
-          <p>10 days ago</p>
-          <div>
-            <i class="fa-solid fa-flag"></i>
-            <i class="fa-solid fa-retweet"></i>
-            <i class="fa-solid fa-heart"></i>
-          </div>
-        </div>
-      </footer>
-      <!--         
-        <div class="tweet-icons">
-          <p>10 days ago</p>
-          <div>
-            <i class="fa-solid fa-flag"></i>
-            <i class="fa-solid fa-retweet"></i>
-            <i class="fa-solid fa-heart"></i>
-          </div>
-        </div> -->
-
-      <!-- <footer>
-        <h6>this is footer</h6>
-      </footer> -->
-    </article>
+    <section class="tweet-container">
+    </section>
   </main>
   <!-- <h6>The classic latin passage that just never gets old, enjoy as much (or as little) lorem ipsum as you can handle with our easy to use filler text generator.</h6> -->
 </body>
