@@ -20,11 +20,14 @@
   <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
   <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
   <link rel="stylesheet" href="/styles/post-tweet.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/errors.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/responsive-design.css" type="text/css" />
 
   <!-- External JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js" integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <!-- <script src="//unpkg.com/timeago.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js"
+    integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <!-- App JS -->
   <script type="text/javascript" src="/scripts/client.js"></script>
   <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
@@ -39,7 +42,7 @@
       <i class="fa-solid fa-angles-down"></i>
     </div>
   </nav>
-  <header>
+  <header class="profile-header">
     <div>
       <img src="/images/profile-hex.png">
     </div>
@@ -52,8 +55,14 @@
   <!-- Page-specific (main) content here -->
   <main class="container">
     <section class="new-tweet">
+      <!-- Display error-->
+      <div>
+        <span id="error">⚠️Please enter some text to tweet!⚠️</span>
+      </div>
+      <div>
+        <span id="error2" style="color: red">⚠️Please check the character limit!⚠️</span>
+      </div>
       <form id="submitTweet" method="POST" action="/tweets/">
-        <!-- <label for="tweet-text">What are you humming about?</label> -->
         <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
         <div class="tweet">
           <button type="submit">Tweet</button>
@@ -64,7 +73,6 @@
     <section class="tweet-container">
     </section>
   </main>
-  <!-- <h6>The classic latin passage that just never gets old, enjoy as much (or as little) lorem ipsum as you can handle with our easy to use filler text generator.</h6> -->
 </body>
 
 </html>

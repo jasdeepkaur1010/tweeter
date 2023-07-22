@@ -6,18 +6,19 @@
 
 article.tweets header {
   margin-top: 0;
-  display: flex; 
+  display: flex;
   width: 95%;
   background-color: #f4f1ec;
 }
 
 .displayUsername {
-  margin-left: 30px;
+  margin-left: 10px;
   width: 100%;
   display: flex;
   align-items: row;
   justify-content: space-between;
 }
+
 .tweets span {
   margin-top: 1em;
 }
@@ -30,9 +31,11 @@ article.tweets header {
   align-items: center;
   height: 40px;
 }
+
 .tweet-icons i {
   color: #4850c2;
 }
+
 .tweet-icons i:hover {
   color: #DEB887;
 }

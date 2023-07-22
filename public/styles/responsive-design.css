@@ -1,0 +1,45 @@
+/*Desktops*/
+
+@media only screen and (min-width: 1024px) {
+  .profile-header {
+    width: 45%;
+    float: left;
+    margin-left: 50px;
+    margin-top: 220px;
+  }
+
+  main {
+    width: 40%;
+    float: right;
+    margin-top: 120px;
+    margin-right: 40px;
+  }
+}
+
+/*Tablets*/
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .profile-header {
+    width: 45%;
+    float: left;
+    margin-left: 50px;
+    margin-top: 220px;
+  }
+
+  main {
+    width: 40%;
+    float: right;
+    margin-top: 120px;
+    margin-right: 40px;
+  }
+}
+
+/*mobile phones*/
+@media only screen and (max-width: 768px) {
+  nav {
+    display: none;
+  }
+
+  .profile-header {
+    margin-top: 0;
+  }
+}

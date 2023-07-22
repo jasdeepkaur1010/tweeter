@@ -1,11 +1,11 @@
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
-
-
 $(document).ready(function () {
+  $('#error').hide();
+  $('#error2').hide();
+  const escape = function (str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
   const createTweetElement = function (tweet) {
     const $tweet = $(`
     <article class="tweets">
@@ -19,11 +19,11 @@ $(document).ready(function () {
           </div>
       </header>
       <section class="tweet-text">
-        <p>If I have seen further it is by standing on the shoulder of giants</p>
+        <p>${(escape(tweet.content.text))}</p>
       </section>
       <footer>
         <div class="tweet-icons">
-          <p>${timeago.format(Date.now() - 11 * 1000 * 60 * 60)}</p>
+          <p>${timeago.format(tweet.created_at)}</p>
           <div>
             <i class="fa-solid fa-flag"></i>
             <i class="fa-solid fa-retweet"></i>
@@ -35,33 +35,50 @@ $(document).ready(function () {
     `);
     return $tweet;
   }
-  const renderTweets = function (tweetArray) {
-    let tweet = "";
-    let tweetContainer = "";
-    for (let i = 0; i < tweetArray.length; i++) {
-      tweet = createTweetElement(tweetArray[i]);
-      tweetContainer = $('.tweet-container').append(tweet)
-    }
-    return tweetContainer;
-  }
-  // renderTweets(data);
 
-  $("#submitTweet").on("submit", function(event) {
+  const renderTweets = function (tweets) {
+    $('.tweet-container').empty()
+    for (const tweet of tweets) {
+      $('.tweet-container').prepend(createTweetElement(tweet));
+    }
+  }
+
+  $("#submitTweet").on("submit", function (event) {
     event.preventDefault();
-    let text = $('#tweet-text').val();
-    console.log(text);
-    console.log($(this).serialize());
+    const textLength = $('#tweet-text').val().length;
+
+    if (textLength === 0) {
+      $('#error2').hide();
+      return $("#error").show();
+    }
+
+    if (textLength > 140) {
+      $('#error').hide();
+      return $('#error2').show();
+    }
+
+    const tweetData = $(this).serialize();
+
+    $.ajax({
+      url: "/tweets",
+      type: 'POST',
+      data: tweetData,
+      success: function () {
+        loadTweets();
+        $('#tweet-text').val('');
+        $('#error').hide();
+        $('#error2').hide();
+      }
+    });
+
   });
-  
-  // $.post("/tweets", function(data) {
-  //   $("#submitTweet").html(data);
-  // });
-  const loadTweets = function() {
+
+  const loadTweets = function () {
     $.ajax({
       url: "/tweets",
       type: 'GET',
-      success: function(data) {
-        console.log(data);
+      success: function (data) {
+        console.log("data", data)
         renderTweets(data);
       }
     });

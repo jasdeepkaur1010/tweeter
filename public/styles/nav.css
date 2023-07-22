@@ -3,15 +3,17 @@ nav {
   justify-content: space-between;
   width: 100%;
   height: 120px;
-  background-color:  #4056A1;
+  background-color: #4056A1;
   color: #FFFFFF;
   padding: 1.5em;
   position: fixed;
   top: 0;
 }
+
 nav .logo {
-  font-family: 'Bungee', cursive; 
+  font-family: 'Bungee', cursive;
 }
+
 nav .newTweet {
   display: flex;
   flex-direction: column;
