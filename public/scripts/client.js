@@ -68,6 +68,7 @@ $(document).ready(function () {
         $('#tweet-text').val('');
         $('#error').hide();
         $('#error2').hide();
+        $('.counter').text('140');
       }
     });
 
@@ -78,7 +79,6 @@ $(document).ready(function () {
       url: "/tweets",
       type: 'GET',
       success: function (data) {
-        console.log("data", data)
         renderTweets(data);
       }
     });

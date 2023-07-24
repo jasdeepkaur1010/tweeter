@@ -1,6 +1,9 @@
 .tweets {
   border: solid black;
   margin-top: 30px;
+}
+
+.tweets:hover {
   box-shadow: 10px 10px gray;
 }
 
@@ -43,4 +46,5 @@ article.tweets header {
 .tweet-text {
   border-bottom: solid black;
   margin: 20px;
+  overflow-wrap: break-word;
 }
